@@ -6,12 +6,14 @@ import Button from 'react-bootstrap/Button';
 import { baseUrl } from '../../settings';
 
 const endpoint = '/excuses';
+const randomEndpoint = '/excuses/random'
 const url = `${baseUrl}${endpoint}`;
+const randomUrl = `${baseUrl}${randomEndpoint}`;
 
 function Excuses() {
   const [excuses, setExcuses] = React.useState(null);
 
-  const getData = async () => {
+  const getExcuses = async () => {
     try {
       const response = await axios.get(url);
       if (response.data) {
@@ -25,13 +27,30 @@ function Excuses() {
     }
   }
 
+  const getRandomExcuse = async () => {
+    try {
+      const response = await axios.get(randomUrl);
+      if (response.data) {
+        const { excuse } = response.data;
+        const item = <Excuse key={excuse.id} excuse={excuse} />
+        setExcuses(item);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <Container>
       <h2>Excuses endpoint</h2>
       <Button
         variant="success"
-        onClick={ getData }
+        onClick={ getExcuses }
       >Get excuses</Button>
+      <Button
+        variant="success"
+        onClick={ getRandomExcuse }
+      >Get random excuses</Button>
       <ul className="list-group">
         {excuses}
       </ul>

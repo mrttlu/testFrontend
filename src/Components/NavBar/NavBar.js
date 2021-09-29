@@ -8,7 +8,7 @@ function NavBar() {
   return (
     <Nav className="justify-content-center" activeKey="/home">
       <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
+        <Nav.Link href="/home">Home</Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link href={ apiDocsUrl } target="_blank">API docs</Nav.Link>
