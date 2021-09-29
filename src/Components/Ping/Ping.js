@@ -25,11 +25,11 @@ function Ping() {
   return (
     <Container>
       <h2>Ping endpoint</h2>
-      <h3>{ping.message}</h3>
       <Button
         variant="success"
         onClick={ getData }
       >Ping</Button>
+      <h3>{ping.message}</h3>
     </Container>
   );
 }
