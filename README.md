@@ -3,17 +3,12 @@
 ## Excuses API
 [https://github.com/mrttlu/programmeerimine2_2021_sygis](https://github.com/mrttlu/programmeerimine2_2021_sygis)
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:4000](http://localhost:4000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Download and run project
+* git clone https://github.com/mrttlu/testFrontend.git
+* cd testFrontend
+* npm install
+* npm start
+* Go to http://localhost:4000
 
 
 ### `npm run build`
