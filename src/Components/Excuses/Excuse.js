@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Excuse(props) {
-  console.log(props);
+  const { id, description } = props.excuse;
   return (
-    <li className="list-group-item" key={props.id}>{props.description}</li>
+    <li className="list-group-item" >{id}. {description}</li>
   );
 }
 

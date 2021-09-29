@@ -1,24 +1,26 @@
 import React from 'react';
 import axios from 'axios';
-import Excuse from './Excuse';
+import User from './User';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { baseUrl } from '../../settings';
 
-const endpoint = '/excuses';
+const endpoint = '/users';
 const url = `${baseUrl}${endpoint}`;
 
-function Excuses() {
-  const [excuses, setExcuses] = React.useState(null);
+function Users() {
+  const [users, setUsers] = React.useState(null);
 
   const getData = async () => {
     try {
       const response = await axios.get(url);
       if (response.data) {
-        const list = response.data.excuses.map((excuse) => {
-          return <Excuse key={excuse.id} excuse={excuse} />
+        const list = response.data.users.map((user) => {
+          return <User
+            key={user.id}
+            user={user} />
         });
-        setExcuses(list);
+        setUsers(list);
       }
     } catch (error) {
       console.log(error);
@@ -27,16 +29,16 @@ function Excuses() {
 
   return (
     <Container>
-      <h2>Excuses endpoint</h2>
+      <h2>Users endpoint</h2>
       <Button
         variant="success"
         onClick={ getData }
-      >Get excuses</Button>
+      >Get users</Button>
       <ul className="list-group">
-        {excuses}
+        {users}
       </ul>
     </Container>
   );
 }
 
-export default Excuses;
+export default Users;
